@@ -1,6 +1,8 @@
-const boeken    = document.getElementById('boeken');
-const xhr       = new XMLHttpRequest();
-const taalkeuze = document.querySelectorAll('.filteren__cb');
+const boeken     = document.getElementById('boeken');
+const xhr        = new XMLHttpRequest();
+const taalkeuze  = document.querySelectorAll('.filteren__cb');
+// Select viir keuze sorteren
+const selectSort = document.querySelector('.filteren__select');
 
 xhr.onreadystatechange = () => {
     if(xhr.readyState == 4 && xhr.status == 200) {
@@ -15,6 +17,8 @@ xhr.send();
 
 const boekenObject = {
     taalFilter: ['Engels', 'Duits', 'Nederlands'],
+    es: 'auteur',
+    // Hier wordt een eigenschap data aangemaakt (Regel 24 bij het filteren)
 
     // Filteren op taal van een boek
     filteren( gegevens ) {
@@ -28,11 +32,22 @@ const boekenObject = {
             return bool;
         })
     },
+
+    // De sorteerfunctie
     sorteren() {
-        this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1);
+        if(this.es == 'titel') {
+            this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1);
+        } else if (this.es == 'paginas') {
+            this.data.sort( (a,b) => ( a.paginas > b.paginas ) ? 1 : -1);
+        } else if (this.es == 'uitgave') {
+            this.data.sort( (a,b) => ( a.uitgave > b.uitgave ) ? 1 : -1);
+        } else if (this.es == 'prijs') {
+            this.data.sort( (a,b) => ( a.prijs > b.prijs ) ? 1 : -1);
+        } else if (this.es == 'auteur') {
+            this.data.sort( (a,b) => ( a.auteurs[0].achternaam > b.auteurs[0].achternaam ) ? 1 : -1);
+        }
     },
 
-    // Hier wordt een eigenschap data aangemaakt (Regel 7)
     uitvoeren() {
         // Eerst sorteren
         this.sorteren();
@@ -107,3 +122,10 @@ const changeFilter = () => {
 }
 
 taalkeuze.forEach( cb => cb.addEventListener('change', changeFilter));
+
+const changeSortOption = () => {
+    boekenObject.es = selectSort.value;
+    boekenObject.uitvoeren();
+}
+
+selectSort.addEventListener('change', changeSortOption);
