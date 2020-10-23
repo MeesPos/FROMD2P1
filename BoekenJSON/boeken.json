@@ -15,6 +15,21 @@
         "prijs": 69.50
     },
     {
+        "titel": "Martien (luxe editie)",
+        "cover": "https://media.s-bol.com/ql58Jgpg0oWy/540x840.jpg",
+        "auteurs": [
+            {
+                "voornaam": "Jan",
+                "achternaam": "Dijkgraaf"
+            }
+        ],
+        "uitgave": "2020-10",
+        "paginas": 352,
+        "taal": "Nederlands",
+        "ean": 9789083096643,
+        "prijs": 25.00
+    },
+    {
         "titel": "Projectmanagement",
         "voortitel": "MBO-ICT - ",
         "cover": "https://media.s-bol.com/J8KNrmMz1DvK/550x800.jpg",
