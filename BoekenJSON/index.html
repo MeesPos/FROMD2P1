@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +8,10 @@
     <title>Boekenlijst van Mees</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <h1>Kies uit de volgende boeken!</h1>
-    
+
     <div class="filteren">
         <label class="filteren__cb-label">
             <input type="checkbox" class="filteren__cb" value="Nederlands" checked>
@@ -27,19 +29,30 @@
         </label>
 
         <!-- Mogelijkheid om te sorteren -->
-        <label class="filteren__select--label"> Sorteren op:
-            <select class="filteren__select">
-                <option value="titel">Titel</option>
-                <option value="auteur">Auteur</option>
-                <option value="uitgave">Publicatie datum</option>
-                <option value="paginas">Pagina's</option>
-                <option value="prijs">Prijs</option>
-            </select>
-        </label>
+        <span class="filteren__sorteren">
+            <label class="filteren__select--label"> Sorteren op:
+                <select class="filteren__select">
+                    <option value="titel">Titel</option>
+                    <option value="auteur">Auteur</option>
+                    <option value="uitgave">Publicatie datum</option>
+                    <option value="paginas">Pagina's</option>
+                    <option value="prijs">Prijs</option>
+                </select>
+            </label>
+
+            <label>
+                <input type="radio" name="opaf" class="filteren__rb" checked value="1">Oplopend
+            </label>
+
+            <label>
+                <input type="radio" name="opaf" class="filteren__rb" value="-1">Aflopend
+            </label>
+        </span>
     </div>
 
     <div id="boeken"></div>
 
     <script src="js/boeken.js"></script>
 </body>
+
 </html>

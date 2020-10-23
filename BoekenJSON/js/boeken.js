@@ -1,7 +1,6 @@
 const boeken     = document.getElementById('boeken');
 const xhr        = new XMLHttpRequest();
 const taalkeuze  = document.querySelectorAll('.filteren__cb');
-// Select viir keuze sorteren
 const selectSort = document.querySelector('.filteren__select');
 
 xhr.onreadystatechange = () => {
@@ -17,7 +16,8 @@ xhr.send();
 
 const boekenObject = {
     taalFilter: ['Engels', 'Duits', 'Nederlands'],
-    es: 'auteur',
+    es: 'titel',
+    oplopend: 1,
     // Hier wordt een eigenschap data aangemaakt (Regel 24 bij het filteren)
 
     // Filteren op taal van een boek
@@ -36,15 +36,15 @@ const boekenObject = {
     // De sorteerfunctie
     sorteren() {
         if(this.es == 'titel') {
-            this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ) ? 1 : -1);
+            this.data.sort( (a,b) => ( a.titel.toUpperCase() > b.titel.toUpperCase() ) ? this.oplopend : -1*this.oplopend);
         } else if (this.es == 'paginas') {
-            this.data.sort( (a,b) => ( a.paginas > b.paginas ) ? 1 : -1);
+            this.data.sort( (a,b) => ( a.paginas > b.paginas ) ? this.oplopend : -1*this.oplopend);
         } else if (this.es == 'uitgave') {
-            this.data.sort( (a,b) => ( a.uitgave > b.uitgave ) ? 1 : -1);
+            this.data.sort( (a,b) => ( a.uitgave > b.uitgave ) ? this.oplopend : -1*this.oplopend);
         } else if (this.es == 'prijs') {
-            this.data.sort( (a,b) => ( a.prijs > b.prijs ) ? 1 : -1);
+            this.data.sort( (a,b) => ( a.prijs > b.prijs ) ? this.oplopend : -1*this.oplopend);
         } else if (this.es == 'auteur') {
-            this.data.sort( (a,b) => ( a.auteurs[0].achternaam > b.auteurs[0].achternaam ) ? 1 : -1);
+            this.data.sort( (a,b) => ( a.auteurs[0].achternaam > b.auteurs[0].achternaam ) ? this.oplopend : -1*this.oplopend);
         }
     },
 
@@ -129,3 +129,8 @@ const changeSortOption = () => {
 }
 
 selectSort.addEventListener('change', changeSortOption);
+
+document.querySelectorAll('.filteren__rb').forEach( rb => rb.addEventListener('change', () => {
+    boekenObject.oplopend = rb.value;
+    boekenObject.uitvoeren();
+}))
