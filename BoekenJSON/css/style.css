@@ -3,6 +3,33 @@ body{
     overflow-x: hidden;
 }
 
+.ww{
+    position: absolute;
+    right: 2em;
+}
+
+.ww__icon{
+    height: 3em;
+}
+
+.ww__aantal{
+    position: absolute;
+    top: -.3em;
+    left: 3.9em;
+    background-color: red;
+    color: white;
+    width: 1em;
+    line-height: 1em;
+    padding: .5em;
+    text-align: center;
+    border-radius: 2em;
+    font-size: .6em;
+}
+
+#boeken{
+    clear: both;
+}
+
 .boek {
     padding: 1em;
     clear: left;
@@ -10,8 +37,11 @@ body{
 
 .boek__cover{
     float: left;
-    padding: 0 3rem 0 0;
-    max-width: 200px;
+    max-width: 150px;
+}
+
+.boek__info{
+    margin-left: 180px;
 }
 
 .boek__titel{
@@ -27,6 +57,28 @@ body{
 .boek__prijs{
     font-size: 2em;
     color: royalblue;
+}
+
+.boek__bestel-knop{
+    font-size: .5em;
+    float: right;
+    display: block;
+    text-decoration: none;
+    color: red;
+    background-color: white;
+    padding: .4em 2.5em;
+    margin-top: 1em;
+    border: 2px solid red;
+    border-radius: 1em;
+    transition: .5s;
+    font-weight: bold;
+    margin-right: 1em;
+    letter-spacing: .2em;
+}
+
+.boek__bestel-knop:hover{
+    color: white;
+    background-color: red;
 }
 
 .filteren__sorteren{
