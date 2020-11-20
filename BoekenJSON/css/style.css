@@ -1,11 +1,14 @@
 body{
     font-family: sans-serif;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .ww{
     position: absolute;
     right: 2em;
+    top: 2em;
+    cursor: pointer;
 }
 
 .ww__icon{
@@ -96,4 +99,40 @@ body{
     .boek:nth-child(4n+2), .boek:nth-child(4n+3) {
         background-color: #DCDCDC;
     }
+}
+
+.bestelformulier{
+    background-color: white;
+    position: absolute;
+    width: 90vw;
+    min-height: 90vh;
+    top: 0em;
+    border-radius: 2em;
+    border: solid gray 2px;
+    padding: 2em;
+    box-sizing: border-box;
+    margin: 4vh 4vw;
+    transform: translateX(100vw);
+    transition: transform 1s ease-out;
+}
+
+#haalFormulier{
+    opacity: 0;
+}
+
+#haalFormulier:checked ~ .bestelformulier{
+    transform: translateX(0vw);
+}
+
+.bestelformulier__cover{
+    height: 3em;
+}
+
+.bestelformulier__trash, .bestelformulier__verlaag, .bestelformulier__verhoog{
+    padding: 0 1em;
+    cursor: pointer;
+}
+
+.bestelformulier__trash:hover, .bestelformulier__verlaag:hover, .bestelformulier__verhoog:hover{
+    color: red;
 }
