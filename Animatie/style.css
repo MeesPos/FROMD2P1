@@ -1,0 +1,80 @@
+body{
+    font-family: sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    color: royalblue;
+}
+
+.vlak{
+    background-color: royalblue;
+    width: 15vw;
+    height: 15vw;
+    transform: translateX(2em);
+    transition: transform 1s cubic-bezier(.08,.8,.63,1);
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.animeer-knop{
+    height: 1.5em;
+}
+
+.vlak__naar-rechts{
+    transform: translateX(60vw) rotate(90deg);
+}
+
+nav{
+    position: fixed;
+}
+
+.nav{
+    font-size: 1em;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav__link{
+    color: white;
+    background-color: royalblue;
+    text-decoration: none;
+    display: block;
+    padding: .2em .8em;
+    transform: translateX(-9em);
+    transition: transform .8s ease-in-out;
+}
+
+.nav__link--schuif-in{
+    transform: translateX(0);
+}
+
+.nav__link:hover{
+    background-color: slateblue;
+}
+
+.nav__item{
+    margin-bottom: .1em;
+}
+
+.nav__knop{
+    padding: .5em .9em;
+    box-sizing: border-box;
+    background-color: blue;
+    color: white;
+    width: 2.7em;
+    cursor: pointer;
+}
+
+.nav__knop:hover{
+    color: white;
+    background-color: royalblue;
+}
