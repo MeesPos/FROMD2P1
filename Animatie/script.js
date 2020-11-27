@@ -15,4 +15,6 @@ menuKnop.addEventListener('click', () => {
             item.classList.toggle('nav__link--schuif-in');
         }, 100 * index );
     })
-})
+    document.querySelector('.fa-bars').classList.toggle('hidden');
+    document.querySelector('.fa-times').classList.toggle('hidden');
+});

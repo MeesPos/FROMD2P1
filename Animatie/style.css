@@ -62,7 +62,7 @@ nav{
 }
 
 .nav__item{
-    margin-bottom: .1em;
+    margin-top: .1em;
 }
 
 .nav__knop{
@@ -77,4 +77,8 @@ nav{
 .nav__knop:hover{
     color: white;
     background-color: royalblue;
+}
+
+.fas.hidden{
+    display: none;
 }
