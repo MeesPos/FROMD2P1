@@ -38,6 +38,6 @@ section{
     height: 100vh;
 }
 
-#deel1{
+#deel1 > p{
     margin-top: 40px;
 }
