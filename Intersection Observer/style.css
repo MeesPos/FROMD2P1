@@ -41,3 +41,37 @@ section{
 #deel1 > p{
     margin-top: 40px;
 }
+
+h3 {
+    transform: translateX(-35vw);
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 3s linear;
+}
+
+h3.laat-zien {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fa-binoculars {
+    color: royalblue;
+    display: block;
+    font-size: 8em;
+    position: fixed;
+    top: 30vh;
+    left: 20vw;
+    opacity: .5;
+    z-index: 100;
+}
+
+#deel2{
+    background-color: aliceblue;
+}
+
+#deel3{
+    background-color: #efefef;
+}
+
+#deel4{
+    background-color: #aaaaaa;
+}

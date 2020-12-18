@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav>
         <li><a href="#deel1" class="actief">deel 1</a></li>
@@ -16,20 +18,87 @@
 
     <section id="deel1">
         <p>Intersaction 1</p>
+        <h3>Dit is voor de tweede observe!</h3>
     </section>
 
     <section id="deel2">
         <p>Intersaction 2</p>
+        <h3>Dit is voor de tweede observe!</h3>
     </section>
 
     <section id="deel3">
         <p>Intersaction 3</p>
+        <h3>Dit is voor de tweede observe!</h3>
+        <span class="fas fa-binoculars"></span>
     </section>
 
     <section id="deel4">
         <p>Intersaction 4f</p>
+        <h3>Dit is voor de tweede observe!</h3>
     </section>
 
+    <script crossorigin="anonymous" src="https://kit.fontawesome.com/1a91c75a80.js"></script>
     <script src="script.js"></script>
+    <script>
+        const alleKopjes = document.querySelectorAll('h3');
+
+        let schuifIn = (entries, waarnemer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('laat-zien');
+                } else {
+                    entry.target.classList.remove('laat-zien');
+                }
+            });
+        }
+
+        let optuibs = {
+            root: null,
+            rootMargin: '-50px',
+            treshold: 1
+        }
+        let waarnemer = new IntersectionObserver(schuifIn, optuibs);
+
+        alleKopjes.forEach(kopje => {
+            waarnemer.observe(kopje);
+        });
+
+        const p3 = document.querySelector('p'); // de paragraaf die geïnspecteert wordt
+        const aantalDrempels = 20;
+        const verrekijker = document.querySelector('.fa-binoculars');
+
+        const maakDrempelArray = () => {
+            let drempels = [];
+            for (let i = 0; i <= aantalDrempels; i++) {
+                let deel = i / aantalDrempels;
+                drempels.push(deel);
+            }
+            drempels.push(0);
+            return drempels;
+        }
+
+        const draaiKijker = (entries, observer) => {
+            // entries zijn de opmerkingen van de observer
+            entries.forEach(entry => {
+                verrekijker.style.transform = `rotate(${-180 * entry.intersectionRatio}deg)`;
+                console.log(entry.intersectionRatio);
+            })
+        }
+
+        const maakObserver = () => {
+            let observer;
+            let options = {
+                root: null,
+                rootMargin: '-40px 0px 0px 0px',
+                threshold: maakDrempelArray()
+            };
+            observer = new IntersectionObserver(draaiKijker, options);
+            observer.observe(p3);
+        }
+
+        // initialiseer
+        maakObserver();
+    </script>
 </body>
+
 </html>
