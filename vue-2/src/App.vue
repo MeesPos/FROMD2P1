@@ -2,18 +2,21 @@
   <div id="app">
     <Header />
     <Towatch v-bind:towatch="towatch" v-on:del-towatch="deleteTowatch" />
+    <AddTowatch v-on:add-towatch="AddTowatch"/>
   </div>
 </template>
 
 <script>
 import Header from './components/layout/header';
-import Towatch from "./components/Towatch";
+import Towatch from './components/Towatch';
+import AddTowatch from './components/AddTowatch';
 
 export default {
   name: "App",
   components: {
     Header,
-    Towatch
+    Towatch,
+    AddTowatch,
   },
   data() {
     return {
@@ -21,11 +24,15 @@ export default {
         {
           id: 1,
           title: "Lost in Space",
+          picture: "",
+          place: "",
           completed: false
         },
         {
           id: 2,
           title: "Stranger Things",
+          picture: "",
+          place: "",
           completed: true
         },
       ],
@@ -35,6 +42,9 @@ export default {
     deleteTowatch(id) {
       this.towatch = this.towatch.filter((towatch) => towatch.id !== id);
     },
+    AddTowatch(newTowatch) {
+      this.towatch = [...this.towatch, newTowatch];
+    }
   },
 };
 </script>

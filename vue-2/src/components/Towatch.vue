@@ -12,12 +12,8 @@ import TowatchItem from './TowatchItem.vue';
 export default {
     name: "Towatch",
     components: {
-        TowatchItem
+        TowatchItem,
     },
     props : ["towatch"]
 }
 </script>
-
-<style scoped>
-
-</style>
