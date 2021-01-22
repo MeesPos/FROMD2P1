@@ -38,7 +38,7 @@ export default {
             const newTowatch = {
                 id: uuidv4(),
                 title: this.title,
-                image: this.image,
+                picture: this.image,
                 place: this.place,
                 completed: false
             } 
@@ -53,5 +53,17 @@ export default {
 </script>
 
 <style scoped>
+.container{
+    background: #F8F8F8;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(0,0,0,.2);
+}
 
+.btn{
+    background: #ff6b6b;
+    color: white;
+}
 </style>
